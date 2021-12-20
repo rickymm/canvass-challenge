@@ -6,6 +6,7 @@ const Layout = styled.div`
     "sidebar navbar "
     "sidebar content";
   grid-template-columns: min-content;
+  grid-template-rows: 40px auto;
 `;
 
 export default Layout;
