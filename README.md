@@ -17,3 +17,7 @@
   - What was the most difficult task?
   
   Feel free to share any other notes on this assignment
+
+
+## After completion
+Upload the repo to any source-code-hosting (GitHub, GitLab, etc.) and provide a link to it
