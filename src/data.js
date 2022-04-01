@@ -1,7 +1,7 @@
 export const projects = [
   {
     id: 4401,
-    name: "Project 1",
+    name: "Project 1 (data.js)",
     createdByUser: "Sam Nison",
     createdDate: "2020-08-26T20:59:39.475347Z",
     template: "Anomaly Detection",
