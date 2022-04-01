@@ -6,6 +6,7 @@ export default function Projects() {
     <Wrapper $area="content">
       <Title $area="title">Projects</Title>
       <Search $area="search" placeholder="Start typing to search..." />
+      {/* TODO: Use ProjectsList to host Project components OR create your own container */}
       <ProjectsList $area="projects">Display projects here...</ProjectsList>
     </Wrapper>
   );
