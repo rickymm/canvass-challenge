@@ -12,4 +12,5 @@
 - [ ] When you are done with the assignment answer the following questions in this README:
   - How much time did you spend on the assignment?
   - What was the most difficult task?
+  
   Feel free to share any other notes on this assignment
