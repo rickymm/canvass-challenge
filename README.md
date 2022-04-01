@@ -5,6 +5,9 @@
 
 - [ ] Use data from `data.js` file to generate a list of `Project` components
 
+- [ ] Use `Search` input component to filter projects list by name
+  This task requires to write a JS function to filter projects if matched with a search query, or some *Nothing found* placeholder if there’s no match
+
 - [ ] Without using any form input libraries implement a tags input component
   The input component that takes text as input and by hitting Enter transforms the input into a tag that is displayed inside the input field. Each tag has a button to remove it.
   Here is the example of Bootstrap plugin: [Bootstrap Tags Input](https://bootstrap-tagsinput.github.io/bootstrap-tagsinput/examples/)
