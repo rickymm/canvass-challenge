@@ -1,9 +1,11 @@
 import React, { useEffect, useState, useMemo } from "react";
 import styled from "styled-components/macro";
-import ProjectCard from "./ProjectCard";
-import { CARD_WIDTH } from "./ProjectCard/styles";
 import { projects as projectsList } from "../data";
 import dateFormatter from "../utils/dateFormatter";
+
+import { CARD_WIDTH } from "./ProjectCard/styles";
+import ProjectCard from "./ProjectCard";
+import SearchInput from "./SearchInput/SearchInput";
 
 function formattedProjects() {
   return projectsList.map((project) => ({
@@ -14,33 +16,14 @@ function formattedProjects() {
 
 export default function Projects() {
   const projects = useMemo(() => formattedProjects(), [projectsList]);
-  const [search, setSearch] = useState();
   const [filteredProjects, setFilteredProjects] = useState(projects);
-
-  useEffect(() => {
-    if (!search) setFilteredProjects(projects);
-
-    if (search) {
-      const newProjects = projects.filter((project) => {
-        const hasSomething = Object.values(project).some((value) => {
-          if (typeof value === "string") {
-            return value.toLocaleLowerCase().startsWith(search.toLowerCase());
-          }
-          return false;
-        });
-        return hasSomething;
-      });
-      setFilteredProjects(newProjects);
-    }
-  }, [search]);
 
   return (
     <Wrapper $area="content">
       <Title $area="title">Projects</Title>
-      <Search
-        $area="search"
-        placeholder="Start typing to search..."
-        onChange={(e) => setSearch(e.target.value)}
+      <SearchInput
+        projects={projects}
+        handleUpdateProjects={setFilteredProjects}
       />
       <ProjectsList $area="projects">
         {filteredProjects.map((project) => (
@@ -59,21 +42,18 @@ const Wrapper = styled.main`
     "search"
     "projects";
   grid-template-rows: 70px 30px auto;
+
+  margin: 0 20px;
 `;
 
 const Title = styled.h1`
   grid-area: ${({ $area }) => $area};
 `;
 
-const Search = styled.input`
-  grid-area: ${({ $area }) => $area};
-  margin: 0 20px;
-`;
-
 const ProjectsList = styled.article`
   grid-area: ${({ $area }) => $area};
   margin-top: 15px;
-  padding: 20px;
+  padding: 20px 0;
 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(${CARD_WIDTH}px, 1fr));

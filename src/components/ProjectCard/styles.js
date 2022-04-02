@@ -14,6 +14,7 @@ export const Card = styled.div`
   justify-self: center;
   padding: 20px;
   width: ${CARD_WIDTH - 30}px;
+  max-height: 120px;
   line-height: 20px;
 
   border-radius: 6px;
@@ -28,10 +29,10 @@ export const Card = styled.div`
 
   ${device.desktop} {
     width: ${CARD_WIDTH}px;
-    max-height: 100px;
     justify-self: baseline;
   }
 `;
+
 export const Row = styled.div`
   display: flex;
   flex-direction: column;
@@ -53,11 +54,22 @@ export const Row = styled.div`
     flex-direction: row;
   }
 `;
-export const Name = styled.span`
-  font-weight: 600;
-`;
+
+const TextSize = {
+  lg: 16,
+  md: 14,
+  sm: 12,
+};
+
 export const Text = styled.span`
-  font-size: 14px;
+  text-align: start;
+  font-size: ${TextSize.md}px;
+
+  ${({ $bold }) =>
+    $bold &&
+    css`
+      font-weight: 600;
+    `}
 
   ${({ $color }) =>
     $color &&
@@ -65,17 +77,18 @@ export const Text = styled.span`
       color: var(--color-${$color});
     `}
 
-  ${({ $small }) =>
-    $small &&
+  ${({ $size }) =>
+    $size &&
     css`
-      font-size: 12px;
+      font-size: ${TextSize[$size]}px;
     `}
 `;
+
 export const Divider = styled.hr`
   display: block;
   height: 1px;
   border: 0;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #33415530;
   margin: 1em 0;
   padding: 0;
 `;

@@ -6,6 +6,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
 :root {
+  --color-white: #fafafa;
+  --color-gray: #e5e7eb;
   --color-green: #16a34a;
   --color-blue: #3b82f6;
   --color-red: #dc2626;
