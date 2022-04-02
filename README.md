@@ -1,23 +1,30 @@
-# Take home assignment
+# ✍️  Points of the implementation 
+- Changed the sidebar color to follow Canvass colors
+- Used Inter font and not so rounded borders for a more formal app
+- A few `box-shadows` to create depths
+- Green border to indicate the project is in production (`inProduction: true`)
+- Decided to keep styled-components as it was already being used
+- `Grid` to help with responsively
 
-- [ ] Create `Project` component based on the `Project card.png` sketch
-  Feel free to use any css styling approach for this assignment (styled-components, css modules, `className` props etc.)
+## 🧐 Q&A
+- [ ] How much time did you spend on the assignment?
 
-- [ ] Use data from `data.js` file to generate a list of `Project` components
+Started: Sat 1pm
 
-- [ ] Use `Search` input component to filter projects list by name
-  This task requires to write a JS function to filter projects if matched with a search query, or some *Nothing found* placeholder if there’s no match
+Finished: Sat 8pm
 
-- [ ] Without using any form input libraries implement a tags input component
-  The input component that takes text as input and by hitting Enter transforms the input into a tag that is displayed inside the input field. Each tag has a button to remove it.
-  Here is the example of Bootstrap plugin: [Bootstrap Tags Input](https://bootstrap-tagsinput.github.io/bootstrap-tagsinput/examples/)
+⏰ Total: `7 hours` but only `6 hours` of coding
 
-- [ ] When you are done with the assignment answer the following questions in this README:
-  - How much time did you spend on the assignment?
-  - What was the most difficult task?
-  
-  Feel free to share any other notes on this assignment
+- [ ] What was the most difficult task?
+- Not having a design to follow 
+- Not knowing what data I showing - which field is important to make it more visible to the user
+- Customizing the search `input`, it's actually a `div` that looks like an `input`
 
+## 🖼️ Screenshots
 
-## After completion
-Upload the repo to any source-code-hosting (GitHub, GitLab, etc.) and provide a link to it
+### Desktop
+![React App (3)](https://user-images.githubusercontent.com/20841237/161404440-829c071a-3ef2-4f1f-a201-4a5a2f224bdd.png)
+![React App (2)](https://user-images.githubusercontent.com/20841237/161404442-5a1d1d6c-2732-466a-8a5f-7bb847f555ab.png)
+### Mobile
+![React App (1)](https://user-images.githubusercontent.com/20841237/161404443-7a7cdf26-e266-4046-9460-4e7fd923230e.png)
+![React App](https://user-images.githubusercontent.com/20841237/161404447-0dfb1476-238a-4a1b-a6d6-68844d42aa17.png)
