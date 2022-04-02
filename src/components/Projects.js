@@ -1,13 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import styled from "styled-components/macro";
-import ProjectCard from "./ProjectCard/ProjectCard";
-import { projects } from "../data";
+import ProjectCard from "./ProjectCard";
+import { CARD_WIDTH } from "./ProjectCard/styles";
+import { projects as projectsList } from "../data";
+import dateFormatter from "../utils/dateFormatter";
+
+function formattedProjects() {
+  return projectsList.map((project) => ({
+    ...project,
+    createdDate: dateFormatter(project.createdDate),
+  }));
+}
 
 export default function Projects() {
+  const projects = useMemo(() => formattedProjects(), [projectsList]);
   const [search, setSearch] = useState();
   const [filteredProjects, setFilteredProjects] = useState(projects);
 
   useEffect(() => {
+    if (!search) setFilteredProjects(projects);
+
     if (search) {
       const newProjects = projects.filter((project) => {
         const hasSomething = Object.values(project).some((value) => {
@@ -19,8 +31,6 @@ export default function Projects() {
         return hasSomething;
       });
       setFilteredProjects(newProjects);
-    } else {
-      setFilteredProjects(projects);
     }
   }, [search]);
 
@@ -63,9 +73,10 @@ const Search = styled.input`
 const ProjectsList = styled.article`
   grid-area: ${({ $area }) => $area};
   margin-top: 15px;
+  padding: 20px;
 
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(${CARD_WIDTH}px, 1fr));
   grid-column-gap: 20px;
   grid-row-gap: 20px;
 `;

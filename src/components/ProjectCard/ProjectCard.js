@@ -1,21 +1,31 @@
 import React from "react";
-import styled from "styled-components/macro";
+import { Text, Card, Row, Name, Divider, TemplateColor } from "./styles";
+
+const Placeholder = () => <Text $color="text-light">--</Text>;
 
 export default function ProjectCard({ project }) {
   const { name, createdByUser, createdDate, template, target, inProduction } =
     project;
 
   return (
-    <Card>
-      <span>{name}</span>
+    <Card $border={inProduction}>
+      <Row $spaceBetween>
+        <Name>{name}</Name>
+        <Text $color={TemplateColor[template]}>
+          {template ?? <Placeholder />}
+        </Text>
+      </Row>
+      <Row $mt={10}>
+        <Text>
+          <b>Target:</b> {target ?? <Placeholder />}
+        </Text>
+      </Row>
+      <Divider />
+      <Row>
+        <Text $color="text-light" $small>
+          <b>Created:</b> {createdByUser} - {createdDate}
+        </Text>
+      </Row>
     </Card>
   );
 }
-
-const Card = styled.div`
-  display: flex;
-  border: 1px solid #333;
-  max-height: 100px;
-  max-width: 370px;
-  padding: 10px;
-`;
