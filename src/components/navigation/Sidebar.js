@@ -1,13 +1,12 @@
 import styled from "styled-components/macro";
+import device from "../../utils/device";
 
 export default function Sidebar() {
   return <Wrapper>{/* Future content */}</Wrapper>;
 }
 
 const Wrapper = styled.div`
-  grid-area: sidebar;
-  display: flex;
-  flex-direction: column;
+  display: none;
   padding-top: 40px;
 
   align-items: center;
@@ -29,5 +28,11 @@ const Wrapper = styled.div`
 
   a:not(:last-child) {
     margin: 15px;
+  }
+
+  ${device.desktop} {
+    display: flex;
+    flex-direction: column;
+    grid-area: sidebar;
   }
 `;
