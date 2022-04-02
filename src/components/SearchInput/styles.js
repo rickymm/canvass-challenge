@@ -1,10 +1,8 @@
-import styled from "styled-components/macro";
+import styled, { css } from "styled-components/macro";
 
 const MARGIN = "8px";
 
 export const Container = styled.div`
-  grid-area: ${({ $area }) => $area};
-
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -12,6 +10,16 @@ export const Container = styled.div`
   min-height: 50px;
   border: 1px solid var(--color-gray);
   border-radius: 4px;
+
+  ${({ $isFocused }) =>
+    $isFocused &&
+    css`
+      outline: 1px solid var(--color-blue);
+    `}
+
+  :hover {
+    cursor: text;
+  }
 `;
 
 export const Tag = styled.div`

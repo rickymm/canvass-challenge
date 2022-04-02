@@ -13,8 +13,9 @@ const Wrapper = styled.div`
   align-items: center;
   list-style: none;
   width: 40px;
-  height: 100vh;
-  background: lightblue;
+  min-height: 100vh;
+  height: 100%;
+  background: linear-gradient(175deg, #77216c 21%, #577ab9);
 
   a {
     color: black;

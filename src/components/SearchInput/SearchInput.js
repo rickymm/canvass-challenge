@@ -5,7 +5,15 @@ import { Container, Tag, Delete, Search } from "./styles";
 const SearchInput = ({ projects, handleUpdateProjects }) => {
   const [searches, setSearches] = useState([]);
   const inputRef = useRef();
+  const [focused, setFocused] = React.useState(false);
   const hasSearches = searches.length;
+
+  function onFocus() {
+    setFocused(true);
+  }
+  function onBlur() {
+    setFocused(false);
+  }
 
   useEffect(() => {
     if (!hasSearches) handleUpdateProjects(projects);
@@ -46,7 +54,7 @@ const SearchInput = ({ projects, handleUpdateProjects }) => {
   }
 
   return (
-    <Container $area="search" onClick={handleFocusInput}>
+    <Container onClick={handleFocusInput} $isFocused={focused}>
       {searches.map((search, index) => (
         <Tag key={`tag-${index}`}>
           {search}
@@ -63,6 +71,8 @@ const SearchInput = ({ projects, handleUpdateProjects }) => {
         ref={inputRef}
         placeholder="Type your search here..."
         onKeyDown={handleKeyDown}
+        onFocus={onFocus}
+        onBlur={onBlur}
       />
     </Container>
   );
